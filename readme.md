@@ -2,207 +2,173 @@ DEPRECATED and NON-ACTUAL
 ===
 ## Let it be like my studying work
 
-#####Simple CRUD system based on Codeigniter using Ajax,Bootstrap,Models and MySQL // Простая система учёта техники на базе Codeigniter с системой авторизации
+#####Simple CRUD system based on Codeigniter using Ajax, Bootstrap, Models and MySQL // Simple equipment accounting system based on an authorization system
 
+This accounting system was written to manage a cartridge database.
+Key Features:
+- user authentication in the system
+- user access level management
+- main page
+- adding, editing, deleting items (CRUD)
+- maintaining a change log and log of key events
+- Russian management interface / logging in Russian
 
-Данная система учёта была написана для управления базой картриджей.
-Основные функции: 
-- авторизация пользователей в системе
-- управление уровнем доступа пользователей
-- главная страница
-- добавление,редактирование,удаление элементов.
-- ведение журнала изменений и лога основных событий.
-- русский интерфейс управления//ведения лога на русском языке
+Code comments are almost absent
+The link on the image leads to YouTube for a video presentation
+[![presentation](http://forum.norma4.net.ua/photoplog/images/9110/1_main.png)](https://youtu.be/v0Up1ZfV0B0)
 
+> The framework taken as a basis is [Codeigniter version 4](https://codeigniter.com/).
+> [Bootstrap 4](http://getbootstrap.com/) was also used as an acceptable visual component, [FontAwesome](http://fontawesome.io/) fonts were used, and [DataTables](https://datatables.net/) was used for convenient sorting.
 
-
-Коментарии в коде почти отсутсвуют 
-Ссылка на изображении ведёт на ютуб для видеопрезентации
-[![презентация](http://forum.norma4.net.ua/photoplog/images/9110/1_main.png)](https://youtu.be/v0Up1ZfV0B0)
-
-
-
-> За основу взят фреймворк  [Codeigniter версии 4](https://codeigniter.com/)
-  также в качестве приемлемой визуальной составляющей использован  [Bootstrap 4](http://getbootstrap.com/) использованы шрифты [FontAwesome](http://fontawesome.io/) и для удобства сортировки использован [DataTables ](https://datatables.net/),
-
-Установка 
+Installation
 ------------
 
-Удобнее всего будет скачать архивом и распаковать.
-В корне папки вы также найдете файлы базы данных с таблицами.
-Установка мало чем отличается от установки CodeIgniter
+The easiest way will be to download the archive and extract it.
+In the root folder, you will also find database files with tables.
+Installation differs little from a standard CodeIgniter installation.
 
-Инструкции по установке:
+Installation Instructions:
 
-Установка CodeIgniter проходит в четыре этапа:
+CodeIgniter installation takes four steps:
 
-    Распакуйте архив.
-    Загрузите файлы и папки CodeIgniter на ваш сервер. Обычно файл index.php находится в корневой папке сайта.
-    Откройте application/config/config.php файл в текстовом редакторе и установите основной (base) URL.Если вы собираетесь использовать шифрование или сессии, назначьте ключ шифрования.
-    Если вы намериваетесь использовать базу данных, откройте application/config/database.php файл в текстовом редакторе и установите настройки вашей базы данных.
-    
-В конце всех проделаных операций вам нужно будет сконфигурировать базовый адрес,ввести данные для доступа к БД.
-Файлы баз данных лежат в корне папки 
+    Extract the archive.
+    Upload the CodeIgniter files and folders to your server. Typically, the index.php file is located in the root folder of the site.
+    Open the application/config/config.php file in a text editor and set the base URL. If you are going to use encryption or sessions, set an encryption key.
+    If you intend to use a database, open the application/config/database.php file in a text editor and set your database settings.
 
-### Список файлов с описанием их функций
+At the end of all performed operations, you will need to configure the base address and enter data for accessing the DB.
+The database files are located in the root of the folder.
 
-Проект по факту состоит из файлов контроллеров по одному на каждую функцию - один контроллер отвечает за работу с картриджами,второй - за авторизацию,третий - управляет данными пользователей,
-четвертый - своибразная стартовая страница.
-Под каждый контроллер свой вьювер.
-Также в проект включёна папка assets в которой лежит Bootstrap,datatables,jquery,FontAwesome.otf.
+### File list with a description of their functions
 
+The project essentially consists of controller files, one for each function: one controller is responsible for working with cartridges, the second - for authorization, the third - manages user data, and the fourth - is a unique start page.
+Each controller has its own viewer (view file).
+The project also includes the `assets` folder, which contains Bootstrap, datatables, jquery, and FontAwesome.otf.
 
-
-```php
-Название файла        | Содержание файла
+File Name             | File Content
 ----------------------|----------------------
-phpstorm.php          | Содержит синтаксис для удобства работы с Codeigniter
-assets                | Папка в которой лежит локальный Bootstrap,datatables,jquery.
-Cartridge.php         | Основной контроллер управления картриджами
-Login.php             | Основной контроллер управления авторизацией
-main.php              | Основной контроллер управления лендингом главной страницы
-user_controller.php   | Основной контроллер управления пользователями
-cartridge_model.php   | Основной файл модель,основная функция - работа с базой данных картриджей
-login_model.php       | Основной файл модель,основная функция - проверка пользователей.
-users_model.php       | Основной файл модель,основная функция - редактирование пользователей.
-add_cartridge.php     | Файл представления для ввода даных о новом элементе
-cartridge_details.php | Файл представления который строит основную таблицу с отображением всех элементов
-edit_details.php      | Файл представления для редактирования даных о элементе
-story_of_element.php  | Файл представления страницы истории
-auth_managment        | Файл представления страницы авторизации для управления пользователями
-footer.php            | Файл представления подвала сайта
-header.php            | Файл представления шапки сайта
-instruction.php       | Файл представления страницы инструкций 
-login_form.php        | Файл представления страницы лоигна
-main_view.php         | Файл представления главной страницы
-registration_for.php  | Файл представления страницы регистрации
-users_manage.php      | Файл представления страницы управления пользователями
-cartridgedb.sql       | Подготовленный файл базы данных элементов с коментариями каждого поля
-story.sql             | Подготовленный файл базы данных истории с коментариями каждого поля
-user_login.sql        | Подготовленный файл базы данных пользователей с коментариями каждого поля
+phpstorm.php          | Contains syntax for ease of working with Codeigniter
+assets                | Folder containing local Bootstrap, datatables, jquery.
+Cartridge.php         | Main cartridge management controller
+Login.php             | Main authorization management controller
+main.php              | Main landing page management controller
+user_controller.php   | Main user management controller
+cartridge_model.php   | Main model file, key function - working with the cartridge database
+login_model.php       | Main model file, key function - user verification.
+users_model.php       | Main model file, key function - user editing.
+add_cartridge.php     | View file for entering data about a new item
+cartridge_details.php | View file that builds the main table displaying all items
+edit_details.php      | View file for editing item data
+story_of_element.php  | View file for the history page
+auth_managment        | View file for the authorization page to manage users
+footer.php            | View file for the site footer
+header.php            | View file for the site header
+instruction.php       | View file for the instructions page
+login_form.php        | View file for the login page
+main_view.php         | View file for the main page
+registration_for.php  | View file for the registration page
+users_manage.php      | View file for the user management page
+cartridgedb.sql       | Prepared database file for items with comments for each field
+story.sql             | Prepared database file for history with comments for each field
+user_login.sql        | Prepared database file for users with comments for each field
 ----------------------|-----------------------
-```
 
-
-
-Требования
+Requirements
 ------------
 
-Стандартные требования к Codeigniter
+Standard requirements for CodeIgniter:
 
-        MySQL (5.1+) via the mysql (deprecated), mysqli иpdo драйвера
+        MySQL (5.1+) via the mysql (deprecated), mysqli, and pdo drivers
         Oracle via the oci8 and pdo drivers
-        PostgreSQL via the postgre  and pdo drivers
-        MS SQL via the mssql, sqlsrv (только версии 2005 и выше) и pdo драйвера
-        SQLite via the sqlite (версии 2), sqlite3 (версии 3) и pdo драйвера
-        CUBRID via the cubrid и pdo драйвера
-        Interbase/Firebird via the ibase и pdo драйвера
-        ODBC via the odbc и pdo драйвера (вам следует знать что ODBC актуальна на абстрактном уровне)
+        PostgreSQL via the postgre and pdo drivers
+        MS SQL via the mssql, sqlsrv (versions 2005 and higher only), and pdo drivers
+        SQLite via the sqlite (version 2), sqlite3 (version 3), and pdo drivers
+        CUBRID via the cubrid and pdo drivers
+        Interbase/Firebird via the ibase and pdo drivers
+        ODBC via the odbc and pdo drivers (you should know that ODBC is relevant at an abstract level)
 
 
-Описание главной страницы  
+Main Page Description
 ------------
 ![screenshot of sample](http://forum.norma4.net.ua/photoplog/images/9110/1_main.png)
 
-
-Главная страница состоит из трёх файлов-вьюверов которые грузятся последовательно в контролере main.
-header.php + main_view.php + footer.php создают стартовую страницу и соотвественно header.php+footer.php используются для создания 
-подвала и шапки сайта. Со стартовой страницы можно сразу попасть на страницу управления пользователями.
-Здесь доступны опции редактирования пользователями
+The main page consists of three view files that are loaded sequentially in the `main` controller.
+`header.php` + `main_view.php` + `footer.php` create the starting page, and accordingly `header.php` + `footer.php` are used to create the site's footer and header. From the start page, you can immediately access the user management page.
+User editing options are available here:
 
 ![screenshot of sample](http://forum.norma4.net.ua/photoplog/images/9110/1_users_man.png)
 
-Редактирование пользователей происходит путём вызова дополнительного меню через Аякс
+User editing occurs by calling an additional menu via Ajax:
 
 ![screenshot of sample](http://forum.norma4.net.ua/photoplog/images/9110/1_new_manage_window.png)
 
-
-
-
-
-Описание страницы управления элементами  
+Item Management Page Description
 ------------
-Здесь описаны значения которые отображаются в таблице/списке
-Вся информация подгружается с БД.
-При отсутсвии элементов в БД или при попытке доступа к странице не авторизировавшись будет выведена надпись ***В базе данных нет записей***
-При уровне доступа 1 будет доступна только история и добавления картриджей.
+Here are the values displayed in the table/list.
+All information is loaded from the DB.
+If there are no items in the DB or if unauthorized access is attempted, the message ***No records in the database*** will be displayed.
+With access level 1, only history and adding cartridges will be available.
 ![screenshot of sample](http://forum.norma4.net.ua/photoplog/images/9110/1_control.png)
 
-
-
-Для редактирования элементов нужен уровень доступа 2.
+Access level 2 is required for editing items.
 ![screenshot of sample](http://forum.norma4.net.ua/photoplog/images/9110/1_control2.png)
 
-
-
-       
-        Название столбца| Содержание столбца
+        Column Name     | Column Content
         ----------------|-----------------------------------------------------------------------------------------------------------------------------------------------
-        id              | уникальный номер элемента - берется из БД.
-        Отдел-владелец  | где установлен картридж или кому он принадлежит по инвентарной базе
-        Бренд           | фирма изготовитель картриджа
-        Марка           | марка картриджа присвоенная производителем 	
-        Код             | уникальный код картриджа//инвентраный номер
-        Кто заправил    | сервисный центр производивший ремонт/заправку/восстановление
-        Состояние       | техническое сотояние картриджа в работе или выведен из работы
-        Примечание      | коментарии которые объясняют ту или иную ситуацию с картриджем
-        Вес до          | вес до отправки в сервисный центр
-        Вес после       | вес после заправки 	
-        Разница в весе  | разница в весе рассчитывается авотоматически при обращении к элементу,информация об этом значении не хранится в БД
-        Дата ухода      | когда был отправлен в сервисный центр 	
-        Дата прихода    | когда был получен из сервисного центра 		
-        Изменить        | кнопка редактирования информации о элементе 	
-        Удалить         | кнопка удалить элемент из базы данных 	
-        История         | кнопка перенаправляет на страницу журнала изменений произведеных с жлементом
-        ВС              | в сервисе(1) или нет(0) рассчитывается автоматически когда поле Дата прихода меньше поля Дата ухода тогда присваивается значение 1 - в сервисе.
+        id              | unique item number - taken from the DB.
+        Owner Department| where the cartridge is installed or to whom it belongs according to the inventory database
+        Brand           | cartridge manufacturer
+        Model           | cartridge model assigned by the manufacturer
+        Code            | unique cartridge code / inventory number
+        Refilled By     | service center that performed the repair/refill/restoration
+        Status          | technical condition of the cartridge (in operation or decommissioned)
+        Note            | comments explaining a particular situation with the cartridge
+        Weight Before   | weight before sending to the service center
+        Weight After    | weight after refill
+        Weight Difference| weight difference is calculated automatically when accessing the item, information about this value is not stored in the DB
+        Departure Date  | when it was sent to the service center
+        Arrival Date    | when it was received from the service center
+        Change          | button to edit information about the item
+        Delete          | button to delete the item from the database
+        History         | button redirects to the change log page for the item
+        IS              | In Service (1) or not (0) is calculated automatically: when the Arrival Date field is less than the Departure Date field, the value 1 (In Service) is assigned.
         -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
 
-Описание страницы истории элемента
+Description of the Item History Page
 ------------
 
-Здесь описаны значения которые отображаются в таблице/списке на странице истории  элемента
-Вся информация подгружается с БД.
-
-
+Here are the values displayed in the table/list on the item history page.
+All information is loaded from the DB.
 
 ![screenshot of sample](http://forum.norma4.net.ua/photoplog/images/9110/3_Screenshot-2017-10-23___________________.png)
 
-
-
-
-
-
-     Название столбца        | Содержание столбца
+     Column Name             | Column Content
      ------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------
-     id                      | уникальный номер записи - берется из БД.
-     Отдел-владелец          | где установлен картридж или кому он принадлежит по инвентарной базе
-     Кто заправил            | сервисный центр производивший ремонт/заправку/восстановление
-     Состояние               | техническое сотояние картриджа в работе или выведен из работы
-     Вес до                  | вес до отправки в сервисный центр
-     Вес после               | вес после заправки 	
-     Дата ухода              | когда был отправлен в сервисный центр 	
-     Дата прихода            | когда был получен из сервисного центра 		
-     Дата внесения изменений | Дата внесения изменений в историю элемента или первого обращения к странице историй
-   	 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
-   	 ***Примечание//Коментарии***
-   	 Поле которое подгружается из БД cartridge/cartridgedb 
-   	 ***Текстовый лог в котором отображаются изменения происходившие в значениях элемента***
-   	 Поле которое подгружается из БД cartridge/story выбирается по старшему индексу id в БД для отображения самых последний изменений 
-   	 - содержит краткую историю основных изменений: а именно пишет только ключи и информацию которая в этих ключах менялась  
-   	 ***Полный текстовый журнал изменений сюда выводится информация о значениях. Было ---- Стало***
-   	 Тестовое поле которое подгружается из БД cartridge/story выбирается по старшему индексу id в БД для отображения самых последний изменений.
-   	 При каждом редактировании и смене данных пишет все данные до редактирования с данными которые получились после редактирования.
-          	
+     id                      | unique record number - taken from the DB.
+     Owner Department        | where the cartridge is installed or to whom it belongs according to the inventory database
+     Refilled By             | service center that performed the repair/refill/restoration
+     Status                  | technical condition of the cartridge (in operation or decommissioned)
+     Weight Before           | weight before sending to the service center
+     Weight After            | weight after refill
+     Departure Date          | when it was sent to the service center
+     Arrival Date            | when it was received from the service center
+     Date of Change Entry    | Date the change was entered into the item history or the first access to the history page
+     ------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------
+     ***Note//Comments***
+     Field loaded from the cartridge/cartridgedb DB
+     ***Text log showing changes that occurred in the item's values***
+     Field loaded from the cartridge/story DB, selected by the highest `id` index in the DB to display the latest changes
+     - contains a brief history of key changes: specifically, it only lists keys and the information that changed in those keys
+     ***Full text change log displays information about values. Was ---- Became***
+     Text field loaded from the cartridge/story DB, selected by the highest `id` index in the DB to display the latest changes.
+     Upon each edit and data change, it records all data before editing and the data that resulted after editing.
 
-Другие версии и будущие изменения
+Other Versions and Future Changes
 -----------
 
-В следующей версии  уже реализована система регистрации и авторизации пользователей.
-Эта версия не безопасна в плане валидации вводимых данных, последующие версии этим не страдают.
+The next version already implements a user registration and authorization system.
+This version is not secure in terms of input data validation; subsequent versions do not suffer from this.
 
+Leave wishes and corrections in the code commenting thread.
 
-Оставляйте пожелания и исправления в ветке коментирования кода.
-
-Для связи - я в [linkedin ](https://www.linkedin.com/in/сергей-обухов-703426140/).
- 
+For contact - I am on [LinkedIn](https://www.linkedin.com/in/сергей-обухов-703426140/).
