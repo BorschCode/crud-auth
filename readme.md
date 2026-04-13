@@ -170,5 +170,3 @@ The next version already implements a user registration and authorization system
 This version is not secure in terms of input data validation; subsequent versions do not suffer from this.
 
 Leave wishes and corrections in the code commenting thread.
-
-For contact - I am on [LinkedIn](https://www.linkedin.com/in/сергей-обухов-703426140/).
